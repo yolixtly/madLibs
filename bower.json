@@ -4,7 +4,7 @@
   "authors": [
     "yolixtly <yolixtly_13@hotmail.com>"
   ],
-  "description": "first app using Angular",
+  "description": "",
   "main": "",
   "license": "MIT",
   "ignore": [
@@ -13,5 +13,9 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "angular": "^1.5.6",
+    "bootstrap": "^3.3.6"
+  }
 }
