@@ -1,0 +1,51 @@
+body {
+	font-family: 'Lato', sans-serif;
+	letter-spacing: 0.03em;
+}
+/* header Styles */
+header {
+	width: 70% !important;
+	border: 0.3em solid black;
+	margin-top: 5em;
+	justify-content: center;
+}
+.face {
+ 	height: 12em;
+    border-right: 0.3em solid;
+    padding: 1em;
+ }
+ .title {
+ 	padding-top: 2em;
+ }
+
+ /* pickWords Styles */
+ #pickWords, #result {
+	width: 70% !important;
+	border: 0.3em solid black;
+	border-top: none;
+	margin: 0 auto;
+	margin-top: -1.4em;
+ }
+#pickWords h3 {
+	padding: 2em 0 1em 3.5em;
+}
+ .boxWrapper {
+	margin-left: 3em;
+	margin-bottom: 3em;
+ }
+ .box {
+ 	margin: 1em;
+ 	border: 0.3em solid;
+ 	text-align: center;
+ }
+
+ /* results Styles */
+
+ .madlib {
+ 	margin: 0 auto;
+ 	text-align: justify;
+ 	padding: 3em;
+ 	font-weight: normal;
+ 	font-size: 1.5em;
+ 
+ }
