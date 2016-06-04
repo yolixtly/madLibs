@@ -1,0 +1,17 @@
+{
+  "name": "madLibs",
+  "homepage": "https://github.com/yolixtly/madLibs",
+  "authors": [
+    "yolixtly <yolixtly_13@hotmail.com>"
+  ],
+  "description": "first app using Angular",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
