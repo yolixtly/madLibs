@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="">
 	<head>
 		<meta charset="UTF-8">
 		<title>MadLibs</title>
@@ -20,19 +20,19 @@
 			<div class="container ">
 				<div class="row boxWrapper">
 					<div class="col-md-3">
-						<input class="box" class="box" type="text" placeholder="male name" />
-						<input class="box" type="text" placeholder="Job Title" />
-						<input class="box" type="text" placeholder="Tedious Task" />
+						<input class="box" type="text" ng-model="name" placeholder="name" />
+						<input class="box" type="text" ng-model="jobTitle" placeholder="Job Title" />
+						<input class="box" type="text" ng-model="tediousTask" placeholder="Tedious Task" />
 					</div>
 					<div class="col-md-3">
-						<input class="box" type="text" placeholder="Dirty task" />
-						<input class="box" type="text" placeholder="Celebrity" />
-						<input class="box" type="text" placeholder="Useless skill" />
+						<input class="box" type="text" ng-model="dirtyTask" placeholder="Dirty task" />
+						<input class="box" type="text" ng-model="celebrity" placeholder="Celebrity" />
+						<input class="box" type="text" ng-model="uselessSkill" placeholder="Useless skill" />
 					</div>
 					<div class="col-md-3">
-						<input class="box" type="text" placeholder="Obnoxious celebrity" />
-						<input class="box" type="text" placeholder="huge number" />
-						<input class="box" type="text" placeholder="Adjective" />
+						<input class="box" type="text" ng-model="adjective" placeholder="Obnoxious celebrity" />
+						<input class="box" type="text" ng-model="obnoxiuous" placeholder="huge number" />
+						<input class="box" type="text" ng-model="number" placeholder="Adjective" />
 					</div>
 				</div>
 			</div>
@@ -42,13 +42,14 @@
 			<div class="row">
 			<div class="col-md-12 madlib">
 			<p>
-				{{female name}} was a {{job title}} who loved technology. Although she loved parts of her job, she absolutely hated {{tedious task}} and {{dirty task}}. So, {{female_name}} met with her life mentor {{celebrity}} who told her to learn how to {{useless skill}} with Thinkful. Thinkful didn't offer a course on {{useless skill}} so she studied programming instead. <br>
+				{{ name }} was a {{ jobTitle }} who loved technology. Although she loved parts of her job, she absolutely hated {{ tediousTask }} and {{ dirtyTask }}. So, {{ name }} met with her life mentor {{ celebrity }} who told her to learn how to {{ uselessSkill }} with Thinkful. Thinkful didn't offer a course on {{ uselessSkill }} so she studied programming instead. <br>
 				
-				What a great decision! With her new skills, {{female name}} built a(n) {{adjective}} robot named {{obnoxiuous celbertity}} that not only loved {{dirty task}} but did it {{huge number}} faster.
+				What a great decision! With her new skills, {{ name }} built a(n) {{ adjective }} robot named {{ obnoxiuous }} that not only loved {{ dirtyTask }} but did it {{ number }} faster.
 			</p>
 				</div>
 				</div>
 			</div>
 		</section>
 	</body>
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 </html>
