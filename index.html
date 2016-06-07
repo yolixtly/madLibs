@@ -1,55 +1,66 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="">
-	<head>
-		<meta charset="UTF-8">
-		<title>MadLibs</title>
-		<link type="text/css" rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-		<link href='https://fonts.googleapis.com/css?family=Lato:400,900' rel='stylesheet' type='text/css'>
-		<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
-		<link type="text/css" rel="stylesheet" href="css/style.css">
-	</head>
-	<body>
-		<header class="container">
-			<div class="row">
-				<div class="col-md-2"><img class="face" src="images/mad-lib-happy-face.png" alt="smiling face"></div>
-				<div class="col-md-8 col-md-offset-2 title"><img src="images/ng-mad-libs-logo.png" alt="ngMad Libs with Angular Logo"></div>
-			</div>
-		</header>
-		<section id="pickWords">
-			<h3>Please Provide the Following words:</h3>
-			<div class="container ">
-				<div class="row boxWrapper">
-					<div class="col-md-3">
-						<input class="box" type="text" ng-model="name" placeholder="name" />
-						<input class="box" type="text" ng-model="jobTitle" placeholder="Job Title" />
-						<input class="box" type="text" ng-model="tediousTask" placeholder="Tedious Task" />
-					</div>
-					<div class="col-md-3">
-						<input class="box" type="text" ng-model="dirtyTask" placeholder="Dirty task" />
-						<input class="box" type="text" ng-model="celebrity" placeholder="Celebrity" />
-						<input class="box" type="text" ng-model="uselessSkill" placeholder="Useless skill" />
-					</div>
-					<div class="col-md-3">
-						<input class="box" type="text" ng-model="adjective" placeholder="Obnoxious celebrity" />
-						<input class="box" type="text" ng-model="obnoxiuous" placeholder="huge number" />
-						<input class="box" type="text" ng-model="number" placeholder="Adjective" />
-					</div>
-				</div>
-			</div>
-		</section>
-		<section id="result">
-			<div class="content">
-			<div class="row">
-			<div class="col-md-12 madlib">
-			<p>
-				{{ name }} was a {{ jobTitle }} who loved technology. Although she loved parts of her job, she absolutely hated {{ tediousTask }} and {{ dirtyTask }}. So, {{ name }} met with her life mentor {{ celebrity }} who told her to learn how to {{ uselessSkill }} with Thinkful. Thinkful didn't offer a course on {{ uselessSkill }} so she studied programming instead. <br>
-				
-				What a great decision! With her new skills, {{ name }} built a(n) {{ adjective }} robot named {{ obnoxiuous }} that not only loved {{ dirtyTask }} but did it {{ number }} faster.
-			</p>
-				</div>
-				</div>
-			</div>
-		</section>
-	</body>
-	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<html lang="en" ng-app="madLibs">
+    <head>
+        <meta charset="UTF-8">
+        <title>MadLibs</title>
+        <link type="text/css" rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link href='https://fonts.googleapis.com/css?family=Lato:400,900' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+        <link type="text/css" rel="stylesheet" href="css/style.css">
+    </head>
+    <body ng-controller="InputValidation as input" >
+        <header class="container">
+            <div class="row">
+                <div class="col-md-2"><img class="face" src="images/mad-lib-happy-face.png" alt="smiling face"></div>
+                <div class="col-md-8 col-md-offset-2 title"><img src="images/ng-mad-libs-logo.png" alt="Mad Libs with Angular Logo"></div>
+            </div>
+        </header>
+        <section id="pickWords" >
+            <h3>Please Provide the Following words:</h3>
+            <h4>pick one: <button ng-click="input.changeGender('male')" ng-class="{selected: input.gender === 'male'}">Male</button> <button ng-click="input.changeGender('female')" ng-class="{selected: input.gender === 'female'}">female</button> </h4>
+            <div class="container ">
+                <div class="row boxWrapper">
+                    <div class="col-md-4">
+                        <input class="box" type="text" ng-model="input.name" placeholder="name"/>
+                        <input class="box" type="text" ng-model="input.jobTitle" placeholder="Job Title"/>
+                        <input class="box" type="text" ng-model="input.tediousTask" placeholder="Tedious Task"/>
+                    </div>
+                    <div class="col-md-4">
+                        <input class="box" type="text" ng-model="input.dirtyTask" placeholder="Dirty task"/>
+                        <input class="box" type="text" ng-model="input.celebrity" placeholder="Celebrity"/>
+                        <input class="box" type="text" ng-model="input.uselessSkill" placeholder="Useless skill"/>
+                    </div>
+                    <div class="col-md-4">
+                        <input class="box" type="text" ng-model="input.obnoxious" placeholder="Obnoxious celebrity"/>
+                        <input class="box" type="text" ng-model="input.number" placeholder="huge number"/>
+                        <input class="box" type="text" ng-model="input.adjective" placeholder="Adjective"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 buttonWrapper">
+                        <button class="btn btn-default pull-right">
+                            Generate MadLibs
+                        </button>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+        <section id="result">
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-12 madlib">
+                        <p>
+                            <span>{{ input.name }}</span> was a <span>{{ input.jobTitle }}</span> who loved technology. Although {{input.gender=='female' ? 'she' : 'he'}} loved parts of {{input.gender=='female' ? 'her' : 'his'}} job, {{input.gender=='female' ? 'she' : 'he'}} absolutely hated <span>{{ input.tediousTask }}</span> and <span>{{ input.dirtyTask }}</span>. So, <span>{{ name }}</span> met with {{input.gender=='female' ? 'her' : 'his'}} life mentor <span>{{ input.celebrity }}</span> who told {{input.gender=='female' ? 'her' : 'his'}} to learn how to <span>{{ input.uselessSkill }}</span> with Thinkful. Thinkful didn't offer a course on <span>{{ input.uselessSkill }}</span> so {{input.gender=='female' ? 'she' : 'he'}} studied programming instead. <br>
+                            
+                            What a great decision! With {{input.gender=='female' ? 'her' : 'his'}} new skills, <span>{{ input.name }}</span> built a(n) <span>{{ input.adjective }}</span> robot named <span>{{ input.obnoxious }}</span> that not only loved <span>{{ input.dirtyTask }}</span> but did it <span>{{ input.number }}</span> faster.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="app.js"></script>
 </html>
