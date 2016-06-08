@@ -18,6 +18,12 @@ app.controller('InputValidation', function(){
 
 	this.changeGender = function(gender){
 		this.gender = gender;
+		console.log(this.gender);
 	}
+	this.resultMadLib = false;
+	this.displayMadLibs = function(){
+		this.resultMadLib = true
+	};
 
 });
+
