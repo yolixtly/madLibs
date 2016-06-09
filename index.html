@@ -22,23 +22,23 @@
       <h4>pick one: <button ng-click="input.changeGender('male')" ng-class="{selected: input.gender === 'male'}">Male</button>
       <button ng-click="input.changeGender('female')" ng-class="{selected: input.gender === 'female'}">female</button> </h4>
 
-    <form name="madInput" ng-submit="input.displayMadLibs()" novalidate>
+    <form name="input.madInput" ng-submit="input.displayMadLibs()" novalidate>
     <div class="container ">
       <div class="row boxWrapper">
         <div class="col-md-4">
-          <input class="box" type="text" ng-model="input.name" placeholder="name" required/>
-          <input class="box" type="text" ng-model="input.jobTitle" placeholder="Job Title" required/>
-          <input class="box" type="text" ng-model="input.tediousTask" placeholder="Tedious Task" required/>
+          <input class="box" name="name" type="text" ng-model="input.name" placeholder="name" required ng-pattern="/^[A-Z]/"/>
+          <input class="box" name="job_title" type="text" ng-model="input.jobTitle" placeholder="Job Title" required/>
+          <input class="box" name="tedious_task" type="text" ng-model="input.tediousTask" placeholder="Tedious Task" required/>
         </div>
         <div class="col-md-4">
-          <input class="box" type="text" ng-model="input.dirtyTask" placeholder="Dirty task" required/>
-          <input class="box" type="text" ng-model="input.celebrity" placeholder="Celebrity" required/>
-          <input class="box" type="text" ng-model="input.uselessSkill" placeholder="Useless skill" required/>
+          <input class="box" name="dirty_task" type="text" ng-model="input.dirtyTask" placeholder="Dirty task" required/>
+          <input class="box" name="celebrity" type="text" ng-model="input.celebrity" placeholder="Celebrity" required/>
+          <input class="box" name="useless_skill" type="text" ng-model="input.uselessSkill" placeholder="Useless skill" required/>
         </div>
         <div class="col-md-4">
-          <input class="box" type="text" ng-model="input.obnoxious" placeholder="Obnoxious celebrity" required/>
-          <input class="box" type="text" ng-model="input.number" placeholder="huge number" required/>
-          <input class="box" type="text" ng-model="input.adjective" placeholder="Adjective" required/>
+          <input class="box" name="obnoxious_celebrity" type="text" ng-model="input.obnoxious" placeholder="Obnoxious celebrity" required/>
+          <input class="box" name="huge_number" type="number" ng-model="input.number" placeholder="huge number" ng-minlength="6" required/>
+          <input class="box" name="adjective" type="text" ng-model="input.adjective" placeholder="Adjective" required/>
         </div>
       </div>
       <div class="row">
@@ -50,7 +50,24 @@
       </div>
     </div>
     </form>
-    <div> form is {{ madInput.$valid }} </div>
+
+    <div> 
+    <p> form is {{ input.madInput.$valid }} </p>
+    <p ng-if="input.madInput.$submitted && input.madInput.name.$error.required">Person Name is required!</p>
+    <p ng-if="input.madInput.$submitted && input.madInput.name.$error.pattern">Capitalize the person Name</p>
+    <p ng-if="input.madInput.$submitted && input.madInput.job_title.$error.required">Job Title is required!</p>
+    <p ng-if="input.madInput.$submitted && input.madInput.tedious_task.$error.required">Tedious Task is required!</p>
+    <p ng-if="input.madInput.$submitted && input.madInput.dirty_task.$error.required">Dirty Task is required!</p>
+    <p ng-if="input.madInput.$submitted && input.madInput.celebrity.$error.required">Think of a Celebrity, it is required!!</p>
+    <p ng-if="input.madInput.$submitted && input.madInput.useless_skill.$error.required">Useless Skills is required!</p>
+    <p ng-if="input.madInput.$submitted && input.madInput.obnoxious_celebrity.$error.required">Type an annoying Celebrity because it is required!</p>
+    <p ng-if="input.madInput.$submitted && input.madInput.huge_number.$error.required">think of a Huge Number, it is required!</p>
+    <p ng-if="input.madInput.$submitted && input.madInput.huge_number.$error.minlength">Number must be 6 digits or more!</p>
+    <p ng-if="input.madInput.$submitted && input.madInput.adjective.$error.required">Adjective is required!</p>
+
+    </div>
+
+
   </section>
   <section id="result" ng-show="input.resultMadLib">
     <div class="content">
