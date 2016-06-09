@@ -1,16 +1,8 @@
 var app = angular.module('madLibs',[]);
 
 app.controller('InputValidation', function(){
-	// initial values of inputs
-	this.name = "Name";
-	this.jobTitle = "Job Title";
-	this.tediousTask = "Tedious task";
-	this.dirtyTask = "Dirty Task";
-	this.celebrity = "Celebrity";
-	this.uselessSkill = "Useless Skills";
-	this.obnoxious = "Obnoxious Celebrity";
-	this.number = "Number";
-	this.adjective = "Adjective";
+	
+
 
 	//change gender 
 
@@ -20,13 +12,34 @@ app.controller('InputValidation', function(){
 		this.gender = gender;
 		console.log(this.gender);
 	};
-
+	//initial State of results section (hidden)
 	this.resultMadLib = false;
+	// If everything in the form is valid then show Results section
 	this.displayMadLibs = function(){
 		if(this.madInput.$valid){
 		this.resultMadLib = true;
 		}
 	};
+
+	this.startOver = function(){
+		// Reset values of inputs when Restart the game
+		this.name = "";
+		this.jobTitle = "";
+		this.tediousTask = "";
+		this.dirtyTask = "";
+		this.celebrity = "";
+		this.uselessSkill = "";
+		this.obnoxious = "";
+		this.number = "";
+		this.adjective = "";
+		//Change views display:
+		this.resultMadLib = false;
+		//reset the entire form
+		this.madInput.$setPristine(); 
+
+
+	};
+			
 
 });
 

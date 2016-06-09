@@ -1,6 +1,11 @@
 # madLibs
 MadLibs using Angular
 
+Initial View with Valiation 
+<img src="images/sketch1.png" alt="final view of the app">
+Results View 
+<img src="images/sketch2.png" alt="final view of the app">
+
 Difficulties: 
 
 - it has been 7 days since I start learning Angular, I really didnt understand how forms work but, shortly the path is getting clear. 

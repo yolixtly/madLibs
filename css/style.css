@@ -50,6 +50,19 @@ header {
  	padding: 0 0 1em 5em;
 
  }
+ .ng-invalid.ng-dirty{
+ 	border-color: #ad3c40;
+ }
+ .ng-valid.ng-dirty{
+ 	border-color: #58885a;
+ }
+
+/* error styles */
+#error > p {
+	color: #ad3c40;
+	padding-left: 5em;
+	font-size: 1.5em;
+}
 
  /* results Styles */
 

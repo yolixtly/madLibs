@@ -15,7 +15,7 @@
         <div class="col-md-8 col-md-offset-2 title"><img src="images/ng-mad-libs-logo.png" alt="Mad Libs with Angular Logo"></div>
       </div>
     </header>
-    <section id="pickWords" >
+    <section id="pickWords" ng-show="!input.resultMadLib">
 
       <h3>Please Provide the Following words:</h3>
 
@@ -51,8 +51,7 @@
     </div>
     </form>
 
-    <div> 
-    <p> form is {{ input.madInput.$valid }} </p>
+    <div id="error"> 
     <p ng-if="input.madInput.$submitted && input.madInput.name.$error.required">Person Name is required!</p>
     <p ng-if="input.madInput.$submitted && input.madInput.name.$error.pattern">Capitalize the person Name</p>
     <p ng-if="input.madInput.$submitted && input.madInput.job_title.$error.required">Job Title is required!</p>
@@ -76,8 +75,11 @@
           <p>
             <span>{{ input.name }}</span> was a <span>{{ input.jobTitle }}</span> who loved technology. Although {{input.gender=='female' ? 'she' : 'he'}} loved parts of {{input.gender=='female' ? 'her' : 'his'}} job, {{input.gender=='female' ? 'she' : 'he'}} absolutely hated <span>{{ input.tediousTask }}</span> and <span>{{ input.dirtyTask }}</span>. So, <span>{{ name }}</span> met with {{input.gender=='female' ? 'her' : 'his'}} life mentor <span>{{ input.celebrity }}</span> who told {{input.gender=='female' ? 'her' : 'his'}} to learn how to <span>{{ input.uselessSkill }}</span> with Thinkful. Thinkful didn't offer a course on <span>{{ input.uselessSkill }}</span> so {{input.gender=='female' ? 'she' : 'he'}} studied programming instead. <br>
             
-            What a great decision! With {{input.gender=='female' ? 'her' : 'his'}} new skills, <span>{{ input.name }}</span> built a(n) <span>{{ input.adjective }}</span> robot named <span>{{ input.obnoxious }}</span> that not only loved <span>{{ input.dirtyTask }}</span> but did it <span>{{ input.number }}</span> faster.
+            What a great decision! With {{input.gender=='female' ? 'her' : 'his'}} new skills, <span>{{ input.name }}</span> built a(n) <span>{{ input.adjective }}</span> robot named <span>{{ input.obnoxious }}</span> that not only loved <span>{{ input.dirtyTask }}</span> but did it <span>{{ input.number }}</span> times faster.
           </p>
+          <button ng-click="input.startOver()" class="btn btn-default pull-left">
+          Start Over
+          </button>
         </div>
       </div>
     </div>
