@@ -16,6 +16,8 @@ header {
  }
  .title {
  	padding-top: 2em;
+ 	font-smoothing: 
+
  }
 
  /* pickWords Styles */
@@ -25,15 +27,36 @@ header {
 	border-top: none;
 	margin: 0 auto;
 	margin-top: -1.4em;
- }
+}
+/* Animations */
+/*when the animations starts hidding*/
+#pickWords.ng-hide-add,
+/*when the animations starts showing*/
+#pickWords.ng-hide-remove {
+  -webkit-transition:0.5s linear all;
+  transition:0.5s linear all;
 
- #pickWords.ng-hide {
- 	transition:2s linear all;
-  	opacity:0;
- }
-  #pickWords.ng-hide-add, #pickWords.ng-hide-remove {
-  	opacity:1;
- }
+  /* remember to add this */
+  display:block!important;
+  opacity:1;
+}
+#pickWords.ng-hide {
+  opacity:0;
+}
+
+#result.ng-hide-add,
+#result.ng-hide-remove {
+  -webkit-transition:0.5s linear all 0.5s;
+  transition:0.5s linear all;
+
+  /* remember to add this */
+  display:block!important;
+  opacity:1;
+}
+#result.ng-hide {
+  opacity:0;
+}
+
 
 #pickWords h3 {
 	padding: 2em 0 1em 3.5em;

@@ -1,7 +1,6 @@
 var app = angular.module('madLibs',['ngAnimate']);
 
 app.controller('InputValidation', function(){
-	
 
 
 	//change gender 
