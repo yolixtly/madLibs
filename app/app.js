@@ -1,4 +1,4 @@
-var app = angular.module('madLibs',['ngAnimate']);
+var app = angular.module('madLibs',[]);
 
 app.controller('InputValidation', function(){
 	

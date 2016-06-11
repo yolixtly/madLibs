@@ -26,6 +26,15 @@ header {
 	margin: 0 auto;
 	margin-top: -1.4em;
  }
+
+ #pickWords.ng-hide {
+ 	transition:2s linear all;
+  	opacity:0;
+ }
+  #pickWords.ng-hide-add, #pickWords.ng-hide-remove {
+  	opacity:1;
+ }
+
 #pickWords h3 {
 	padding: 2em 0 1em 3.5em;
 }
@@ -58,11 +67,13 @@ header {
  }
 
 /* error styles */
-#error > p {
+#error > li {
 	color: #ad3c40;
 	padding-left: 5em;
 	font-size: 1.5em;
+	list-style: none;
 }
+
 
  /* results Styles */
 
@@ -79,3 +90,4 @@ header {
  span {
  	text-decoration: underline;
  }
+
