@@ -16,6 +16,8 @@ header {
  }
  .title {
  	padding-top: 2em;
+ 	font-smoothing: 
+
  }
 
  /* pickWords Styles */
@@ -25,7 +27,46 @@ header {
 	border-top: none;
 	margin: 0 auto;
 	margin-top: -1.4em;
- }
+}
+
+/*Animation Starts hiding pickWords section*/
+#pickWords.ng-hide-add,
+#pickWords.ng-hide-add-Active  {
+  -webkit-transition:0.3s linear all;
+  transition:0.3s linear all;
+  opacity: 0.7;
+  display: block;
+}
+/*Animation ends hiding pickWords section*/
+#pickWords.ng-hide {
+	opacity: 0;
+}
+/*Animation starts showing Result section*/
+#result.ng-hide-remove {
+  transition:1s linear all;
+  transition-delay: 0.3s;
+  opacity: 0;
+  display: block;
+}
+/*Animation ends showing Result section*/
+#result.ng-hide-remove-active {
+	opacity: 1;
+}
+/*Animation starts showing pickWords section*/
+#pickWords.ng-hide-remove {
+  transition:0.5s linear all;
+  opacity: 0;
+  display: block;
+}
+/*Animation ends showing pickWords section*/
+#pickWords.ng-hide-remove-active {
+	opacity: 1;
+}
+/*results animation ends desaperaing without animation*/
+#result.ng-hide {
+	opacity: 0;
+}
+
 #pickWords h3 {
 	padding: 2em 0 1em 3.5em;
 }
@@ -58,11 +99,13 @@ header {
  }
 
 /* error styles */
-#error > p {
+#error > li {
 	color: #ad3c40;
 	padding-left: 5em;
 	font-size: 1.5em;
+	list-style: none;
 }
+
 
  /* results Styles */
 
@@ -79,3 +122,4 @@ header {
  span {
  	text-decoration: underline;
  }
+

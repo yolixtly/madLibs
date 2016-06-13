@@ -6,6 +6,7 @@
     <link type="text/css" rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link href='https://fonts.googleapis.com/css?family=Lato:400,900' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
     <link type="text/css" rel="stylesheet" href="css/style.css">
   </head>
   <body ng-controller="InputValidation as input" >
@@ -15,6 +16,7 @@
         <div class="col-md-8 col-md-offset-2 title"><img src="images/ng-mad-libs-logo.png" alt="Mad Libs with Angular Logo"></div>
       </div>
     </header>
+    <!--input.resultsMadLibs is initialized to false in app.js, So !false===ture, then #idPickWords is going to be VISIBLE when ng-show="" is set to TRUE in this case it will Show!-->
     <section id="pickWords" ng-show="!input.resultMadLib">
 
       <h3>Please Provide the Following words:</h3>
@@ -26,7 +28,7 @@
     <div class="container ">
       <div class="row boxWrapper">
         <div class="col-md-4">
-          <input class="box" name="name" type="text" ng-model="input.name" placeholder="name" required ng-pattern="/^[A-Z]/"/>
+           <input class="box" name="name" type="text" ng-model="input.name"  placeholder="name" required ng-pattern="/^[A-Z]/"/>
           <input class="box" name="job_title" type="text" ng-model="input.jobTitle" placeholder="Job Title" required/>
           <input class="box" name="tedious_task" type="text" ng-model="input.tediousTask" placeholder="Tedious Task" required/>
         </div>
@@ -51,23 +53,24 @@
     </div>
     </form>
 
-    <div id="error"> 
-    <p ng-if="input.madInput.$submitted && input.madInput.name.$error.required">Person Name is required!</p>
-    <p ng-if="input.madInput.$submitted && input.madInput.name.$error.pattern">Capitalize the person Name</p>
-    <p ng-if="input.madInput.$submitted && input.madInput.job_title.$error.required">Job Title is required!</p>
-    <p ng-if="input.madInput.$submitted && input.madInput.tedious_task.$error.required">Tedious Task is required!</p>
-    <p ng-if="input.madInput.$submitted && input.madInput.dirty_task.$error.required">Dirty Task is required!</p>
-    <p ng-if="input.madInput.$submitted && input.madInput.celebrity.$error.required">Think of a Celebrity, it is required!!</p>
-    <p ng-if="input.madInput.$submitted && input.madInput.useless_skill.$error.required">Useless Skills is required!</p>
-    <p ng-if="input.madInput.$submitted && input.madInput.obnoxious_celebrity.$error.required">Type an annoying Celebrity because it is required!</p>
-    <p ng-if="input.madInput.$submitted && input.madInput.huge_number.$error.required">think of a Huge Number, it is required!</p>
-    <p ng-if="input.madInput.$submitted && input.madInput.huge_number.$error.minlength">Number must be 6 digits or more!</p>
-    <p ng-if="input.madInput.$submitted && input.madInput.adjective.$error.required">Adjective is required!</p>
+    <ul id="error"> 
+      <li ng-if="input.madInput.$submitted && input.madInput.name.$error.required" ng-class="animationError">Person Name is required!</li>
+      <li ng-if="input.madInput.$submitted && input.madInput.name.$error.pattern">Capitalize the person Name</li>
+      <li ng-if="input.madInput.$submitted && input.madInput.job_title.$error.required">Job Title is required!</li>
+      <li ng-if="input.madInput.$submitted && input.madInput.tedious_task.$error.required">Tedious Task is required!</li>
+      <li ng-if="input.madInput.$submitted && input.madInput.dirty_task.$error.required">Dirty Task is required!</li>
+      <li ng-if="input.madInput.$submitted && input.madInput.celebrity.$error.required">Think of a Celebrity, it is required!!</li>
+      <li ng-if="input.madInput.$submitted && input.madInput.useless_skill.$error.required">Useless Skills is required!</li>
+      <li ng-if="input.madInput.$submitted && input.madInput.obnoxious_celebrity.$error.required">Type an annoying Celebrity because it is required!</li>
+      <li ng-if="input.madInput.$submitted && input.madInput.huge_number.$error.required">think of a Huge Number, it is required!</li>
+      <li ng-if="input.madInput.$submitted && input.madInput.huge_number.$error.minlength">Number must be 6 digits or more!</li>
+      <li ng-if="input.madInput.$submitted && input.madInput.adjective.$error.required">Adjective is required!</li>
 
-    </div>
+    </ul>
 
 
   </section>
+<!--input.resultsMadLibs is initialized to false in app.js, but when the submit button of form is trigered then that value changes to TRUE  So input.resultMadLib===ture, then #idPickWords is going to be invisible when ng-show="" is set to False, and when #results changes to TRUE then it will be visible!! :)-->
   <section id="result" ng-show="input.resultMadLib">
     <div class="content">
       <div class="row">
@@ -86,5 +89,6 @@
   </section>
 </body>
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
-<script src="app.js"></script>
+  <script type="application/javascript" src="app/prefixfree.min.js"></script>
+<script src="app/app.js"></script>
 </html>
