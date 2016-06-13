@@ -1,7 +1,7 @@
 # madLibs
-MadLibs using Angular
+MadLibs using Angular: http://yolixtly.github.io/madLibs/
 
-Initial View with Valiation  http://yolixtly.github.io/madLibs/
+Initial View with Valiation
 <img src="images/sketch1.png" alt="final view of the app">
 Results View 
 <img src="images/sketch2.png" alt="final view of the app">
